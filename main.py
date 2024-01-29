@@ -1,8 +1,8 @@
 '''
 Entrenamiento de Goku en la cámara del tiempo.
 
-Este script utiliza regresión lineal para estimar el tiempo necesario
-para aumentar el nivel de ki de Goku a 120.000,
+Este script utiliza la regresión lineal con objeto de estimar el tiempo
+necesario para aumentar el nivel de ki de Goku a 120.000,
 basándose en datos de entrenamiento.
 
 Requiere:
@@ -17,14 +17,14 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 
 # Lee el archivo 'entrenamiento.csv'
-batallas = pd.read_csv('entrenamiento.csv')
+entrenamiento = pd.read_csv('entrenamiento.csv')
 
 # Extrae los valores de las columnas 'ki' y 'tiempo'
-x = batallas[['ki']].values  # Variable independiente: ki
-y = batallas[['tiempo']].values  # Variable dependiente: tiempo
+x = entrenamiento[['ki']].values  # Variable independiente: ki
+y = entrenamiento[['tiempo']].values  # Variable dependiente: tiempo
 
 # Gráfica de la relación entre las variables ki y tiempo
-batallas.plot(kind='scatter', grid=True, x='ki', y='tiempo')
+entrenamiento.plot(kind='scatter', grid=True, x='ki', y='tiempo')
 # plt.show()  # Comentar o descomentar según se desee visualizar la gráfica
 
 # Crea un modelo de regresión lineal
